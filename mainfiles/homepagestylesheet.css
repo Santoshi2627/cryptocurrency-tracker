@@ -1,0 +1,177 @@
+img{
+    border-radius:30px;
+
+}
+/* .btn-primary{
+    width: 75%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 8px;
+    color: white;
+    background-color: #212eee;
+    border: 2px solid #212eee;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+} */
+.carousel-caption {
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* right: 50%; */
+    /* transform: translate(-50%, -50%); */
+    text-align: center;
+  }
+  /* Styling for the button */
+  .section2 p{
+    font-weight: bold;
+    color: rgb(235, 245, 245);
+  }
+  .section3 {
+    width: 30vw;
+    height: 100%;
+    padding: 5px;
+    position: relative;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 2px 2px 4px 4px rgba(135, 129, 129, 0.1);
+    padding: 50px;
+    border-radius: 50px;
+  }
+  .title {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(235, 234, 239);
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  form input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px;
+    padding-left: 40px;
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid rgb(220, 215, 220);
+  }
+  div i {
+    position: absolute;
+    padding: 10px;
+  }
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 20px; */
+  }
+  .submit-container a {
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+    box-shadow: 0px 0px 5px;
+    font-size: 20px;
+    color: rgb(249, 43, 43);
+    /* background-color: antiquewhite; */
+    text-decoration: none;
+    line-height: 45px;
+  }
+  .submit-container a:hover {
+    opacity: 0.6;
+  }
+/* section-3 styling */
+/* .section3{
+  height: 100vh;
+  width: 100vh;
+
+}
+  .subsec1,.subsec2,.subsec3,.subsec4,.subsec5,.subsec6{
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px 0px rgb(0.5,0,0,0.5);
+    height: 70%;
+    width: 70%;
+  }
+  .section3 img{
+    width:100%;
+    height: 350px;
+  }
+  .aboutdiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;section3
+  } */
+   /* Section styles */
+.section4 {
+  display: flex;
+  flex-direction: column; /* 3 equal columns */
+  grid-gap: 20px; /* Space between items */
+  padding: 20px;
+  width: 100%;
+  height: fit-content;
+
+}
+.section4-heading{
+  height: fit-content;
+}
+
+.aboutdiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card styling */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* text-align: center; */
+}
+
+.card img {
+  width: 100%;
+  height: 80%;
+  /* height: auto; */
+  border-radius: 8px;
+}
+
+.card h3, .card h4 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Button styling */
+button a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #212eee;
+  border-radius: 25px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button a:hover {
+  background-color: #1c1fb3;
+}

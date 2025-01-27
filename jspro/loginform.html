@@ -1,0 +1,166 @@
+<!-- // let pattern=/hi/;
+// let input="hello"
+// let matched=pattern.test(input)
+// console.log(matched) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* border: 2px solid gray; */
+        /* border-radius: 30px; */
+        width: 30vw;
+        height: 100%;
+        padding: 5px;
+        /* display: relative; */
+        position: relative;
+        margin-top: 50px;
+        margin-left: 100px;
+        /* display:flex;
+        justify-content:center;
+        align-content: center; */
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
+        padding: 50px;
+        border-radius: 50px;
+      }
+      .title {
+        font-size: 30px;
+        text-align: center;
+        color: brown;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      form input {
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px;
+        padding-left: 40px;
+      }
+      input:focus {
+        outline: none;
+        border: 2px solid rgb(220, 215, 220);
+      }
+      div i {
+        position: absolute;
+        padding: 10px;
+      }
+
+      button {
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+        height: 45px;
+        outline: none;
+        border-radius: 5px;
+        transition: all 0.1s ease;
+        box-shadow: 0px 0px 5px;
+        font-size: 20px;
+        color: rgb(249, 43, 43);
+        background-color: antiquewhite;
+      }
+      button:hover {
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form1">
+        <div class="title">GET STARTED</div>
+        <div class="name">
+          <label for="username">User-Name:</label>
+
+          <i class="fa-solid fa-user-large"></i>
+          <input type="text" id="username" />
+          <span id="sp1" style="display: none; color: rgb(244, 7, 7)"
+            >please enter a username</span
+          >
+          <span id="spu" style="display: none; color: rgb(244, 19, 19)"
+            >please fill only alphabets</span
+          >
+        </div>
+        <div class="email">
+          <label for="mail">Email:</label>
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" id="mail" />
+          <span id="sp2" style="display: none; color: rgb(244, 19, 19)"
+            >please enter a email</span
+          >
+          <span id="spe" style="display: none; color: rgb(244, 19, 19)"
+            >please give correct pattern of e-mail</span
+          >
+        </div>
+        <div class="password">
+          <label for="password">Password:</label>
+          <i class="fa-solid fa-lock"></i>
+          <!-- <input type="password" id="password" /> -->
+          
+        </div>
+        <div>
+          <button type="submit">submit</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      let form = document.getElementById("form1");
+      let name = document.getElementById("username");
+      let email = document.getElementById("mail");
+      let sp1 = document.getElementById("sp1");
+      let sp2 = document.getElementById("sp2");
+      let sp3 = document.getElementById("sp3");
+    //   let password = document.getElementById("password");
+      let onlyalphabets = /[a-zA-Z]/;
+      // let emailpattern = /[a-z][@]gmail.com/;
+      // let passwordpattern = /(?=.*[a-z])(?=.*[1-2])/;
+      let emailPattern = /(?=.*[a-zA-Z])/; // Valid email pattern
+        //    let passwordPattern = /^(?=.*[a-zA-Z])(?=.*[@#$%&!]).{8,}$/;
+      form.addEventListener("submit", function (form) {
+        form.preventDefault();
+       
+        if (username.value.length == 0) {
+        sp1.style.display = "block";
+      
+      } 
+      else if (!onlyalphabets.test(username.value)) {
+        spu.style.display = "block";
+      
+      }
+
+      // Check email
+     else if (email.value.length == 0) {
+        sp2.style.display = "block";
+        // valid=false
+      } else if (!emailPattern.test(email.value)) {
+        spe.style.display = "block";
+    
+      }
+      else{
+        alert('your successfully submitted a form')
+      }
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 50px; /* Set width of the images */
+            height: 50px; /* Set height of the images */
+            margin-right: 15px; /* Space between image and text */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cryptocurrency List</h1>
+    <ul id="coin-list"></ul>
+
+    <script>
+        fetch('https://api.coinranking.com/v2/coins')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Log the data to see its structure
+                const coinList = document.getElementById('coin-list');
+                const coins = data.data.coins;
+
+                // Loop through the coins and create list items
+                coins.forEach(coin => {
+                    const li = document.createElement('li');
+
+                    // Create an image element
+                    const img = document.createElement('img');
+                    img.src = coin.iconUrl; // Assign the URL of the image here
+                    img.alt = `${coin.name} logo`; // Set alt text for accessibility
+
+                    // Convert price and market cap to a number before using toFixed
+                    const price = parseFloat(coin.price); // Convert price to float
+                    const marketCap = parseFloat(coin.marketCap); // Convert market cap to float
+
+                    // Set the text content of the list item including market cap
+                    li.textContent = `${coin.name} (${coin.symbol}): $${price.toFixed(2)} | Market Cap: $${marketCap.toFixed(2)}`;
+
+                    // Append the image and text to the list item
+                    li.prepend(img); // Add the image to the beginning of the list item
+                    coinList.appendChild(li); // Add the list item to the coin list
+                });
+            })
+            .catch(err => console.error(err));
+    </script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptocurrency List</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        } */
+        img {
+            width: 50px; /* Set width of the images */
+            height: 50px; /* Set height of the images */
+            margin-right: 15px; /* Space between image and text */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cryptocurrency List</h1>
+    <input type="text" id="search" placeholder="Search for a cryptocurrency...">
+    <ul id="coin-list"></ul>
+
+    <script>
+        // Fetch cryptocurrency data
+        fetch('https://api.coinranking.com/v2/coins')
+            .then(response => response.json())
+            .then(data => {
+                const coins = data.data.coins;
+                const coinList = document.getElementById('coin-list');
+
+                // Function to display coins
+                function displayCoins(coinsToDisplay) {
+                    coinList.innerHTML = ''; // Clear the list
+                    coinsToDisplay.forEach(coin => {
+                        const li = document.createElement('li');
+
+                        // Create an image element
+                        const img = document.createElement('img');
+                        img.src = coin.iconUrl; // Assign the URL of the image here
+                        img.alt = `${coin.name} logo`; // Set alt text for accessibility
+
+                        // Convert price and market cap to a number before using toFixed
+                        const price = parseFloat(coin.price); // Convert price to float
+                        const marketCap = parseFloat(coin.marketCap); // Convert market cap to float
+
+                        // Set the text content of the list item including market cap
+                        li.textContent = `${coin.name} (${coin.symbol}): $${price.toFixed(2)} | Market Cap: $${marketCap.toFixed(2)}`;
+
+                        // Append the image and text to the list item
+                        li.prepend(img); // Add the image to the beginning of the list item
+                        coinList.appendChild(li); // Add the list item to the coin list
+                    });
+                }
+
+                // Initially display all coins
+                displayCoins(coins);
+
+                // Add event listener for search input
+                document.getElementById('search').addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase(); // Get search term in lowercase
+                    const filteredCoins = coins.filter(coin => 
+                        coin.name.toLowerCase().includes(searchTerm) || 
+                        coin.symbol.toLowerCase().includes(searchTerm)
+                    ); // Filter coins by name or symbol
+
+                    displayCoins(filteredCoins); // Display filtered coins
+                });
+            })
+            .catch(err => console.error(err));
+    </script>
+
+</body>
+</html>
+
